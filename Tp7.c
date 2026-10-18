@@ -8,41 +8,10 @@
 int cod[TAM] = {0};
 float pre[TAM] = {0};
 
-void mayor_menor(int x[], float y[], int n)
-{
-    float c = 0; //Mas Caro
-    float b = 999999999999999999; //Mas Barato
-    int A = 0;//Pocision en la tabla del mas Caro
-    int E = 0;//Pocision en la tabla del mas Barato
-    
-    for (int i = 0; i < n; i++)
-    {
-        if(c < y[i])
-        {
-            A = i;
-            c = y[i];
-        }
-        
-        if(b > y[i])
-        {
-            E = i;
-            b = y[i];
-        }
-    }
-    
-    printf("\n+-------+----+------------+----------------------+\n");
-    printf(  "|       | N° |   CODIGO   |        PRECIO        |\n");
-    printf(  "+-------+----+------------+----------------------+\n");
-    printf(  "| Mayor | %-2d | %10d | $%20.2f|\n", A+1, x[A], c);
-    printf(  "+-------+----+------------+----------------------+\n");
-    printf(  "| Menor | %-2d | %10d | $%20.2f|\n", E+1, x[E], b);
-    printf(  "+-------+----+------------+----------------------+\n");
-}
-
 void tabla(int x[], float y[], int n)
 {
     printf("\n+----+------------+----------------------+\n");
-    printf(  "| N° |   CODIGO   |        PRECIO        |\n");
+    printf(  "| N  |   CODIGO   |        PRECIO        |\n");
     printf(  "+----+------------+----------------------+\n");
         
     for (int i = 0; i < n; i++)
@@ -57,7 +26,7 @@ int main()
 {
     int basura;
     
-    printf("Ingrese 10 productos, se solicita el codigo y precio:\n");
+    printf("Ingrese %d productos, se solicitara el codigo y precio:\n", TAM);
     
     for(int i=0;i<TAM;i++)
     {
@@ -87,7 +56,6 @@ int main()
     }
     
     tabla(cod, pre, TAM);
-    mayor_menor(cod, pre, TAM);
 
     return 0;
 }
